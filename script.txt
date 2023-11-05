@@ -1,0 +1,76 @@
+*note
+#inner join
+	-Menggabungkan data dari dua tabel berdasarkan kunci penggabungan yang 		sesuai.
+	-Hanya mengembalikan baris yang memiliki nilai yang cocok di kedua tabel.
+	-Baris yang tidak memiliki kesamaan dalam kedua tabel tidak disertakan dalam 	hasil.
+#left join
+	-Menggabungkan data dari dua tabel berdasarkan kunci penggabungan yang 	sesuai.
+	-Mengembalikan semua baris dari tabel kiri dan hanya baris dari tabel kanan yang 	sesuai.
+	-Jika tidak ada kesamaan di tabel kanan, hasilnya akan menampilkan NULL untuk 	kolom-kolom tabel kanan.
+#right join
+	-Menggabungkan data dari dua tabel berdasarkan kunci penggabungan yang 	sesuai.
+	-Mengembalikan semua baris dari tabel kanan dan hanya baris dari tabel kiri yang 	sesuai.
+	-Jika tidak ada kesamaan di tabel kiri, hasilnya akan menampilkan NULL untuk 	kolom-kolom tabel kiri.
+
+
+
+#get data
+select * from eproc e where uid = '9'
+
+
+#create table
+create table table_name (id Int,Name varchar(255));
+
+
+#delete record
+delete from users where id = 1 ;
+
+
+#create data 
+insert INTO users (name, email, password) VALUES (99, 'ananddsdsa@fds.com', 'SID23IF00SS0200');
+
+
+#orderBy
+select * from users order by id  asc ;
+select * from users order by id, email asc ;
+
+	#orderby join dari relasi
+	select * from users join role on users.id = role.user_id order by 	role.user_id asc  ;
+
+	#orderby join dari table itu sendiri
+	select * from users join role on users.id = role.user_id order by 	role.user_id asc  ;
+
+
+
+#where Or 
+SELECT * FROM users WHERE id = 8 OR id = 9 ORDER BY id ASC;
+
+
+#update data
+UPDATE users SET name = 'nanda', email = 'nanda@gmail.com' WHERE id = 8;
+
+
+#null value
+select * from users where email is null;
+
+
+#not null value
+select * from users where email is not null;
+
+
+#join table
+select * from users join role on users.id = role.user_id;
+
+
+#join left table
+select * from users left join role on users.id = role.user_id;
+
+
+#join right table
+select * from users left right role on users.id = role.user_id;
+
+
+#membuat kolom "nilai" di result ( menggunakan as )
+select id, email , ROUND(nilai) AS nilai from
+users join role 
+on users.id = role.user_id;
